@@ -12,7 +12,7 @@ MetaTrader 4 is an electronic trading platform for foreign exchange traders by M
 * To allow autotrading and usage of external code in MT4, go to Tools, Options, Expert Advisors and enable "Allow automated trading", "Allow DLL imports". 
 * If calling web apis from MQL, check "Allow WebRequests for listed URL" (+ the used URLs).
 * MT4 only accepts "x86" runtime compilations (so no "AnyCPU")
-* * An external file such as your C# library must be placed in the MT4 instance's "Data Folder"/MQL4/Libraries/ folder, while any additional files (external projects, NuGet packages etc.) must be placed in the MT4 instance's installation folder to be found.
+* An external file such as your C# library must be placed in the MT4 instance's "Data Folder"/MQL4/Libraries/ folder, while any additional files (external projects, NuGet packages etc.) must be placed in the MT4 instance's installation folder to be found.
 * The included MQL sample "DNNETest.mq4" is an EA and must be placed in the "Data Folder"/MQL4/Experts/ folder and compiled there.
 * Your compiled code can now be run by dragging the file from the Navigator onto the active trading window.
 * MQL uses the "Expert" window for logging, rather than the normal "Journal" window.
