@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup Label="Project">
+		<TargetFramework>net7.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<Platforms>x86</Platforms>
+		<PlatformTarget>x86</PlatformTarget>
+		<RuntimeIdentifier>win-x86</RuntimeIdentifier>
+		<EnableDynamicLoading>true</EnableDynamicLoading>
+		<OutputType>library</OutputType>
+	</PropertyGroup>
+	<PropertyGroup Label="DNNE">
+		<DnneRuntimeIdentifier>win-x86</DnneRuntimeIdentifier>
+		<!-- 
+			<DnneSelfContained_Experimental>true</DnneSelfContained_Experimental>
+		-->
+		<DnneAddGeneratedBinaryToProject>true</DnneAddGeneratedBinaryToProject>
+		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+		<InvariantGlobalization>true</InvariantGlobalization>
+	</PropertyGroup>
+	<PropertyGroup Label="Publish">
+		<GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+		<RollForward>LatestMinor</RollForward>
+		<PublishSingleFile>false</PublishSingleFile>
+		<SelfContained>true</SelfContained>
+		<PublishTrimmed>false</PublishTrimmed>
+		<DebugType>embedded</DebugType>
+		<IncludeNativeLibrariesForSelfExtract>false</IncludeNativeLibrariesForSelfExtract>
+		<ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="DNNE" Version="2.0.1" />
+	</ItemGroup>
+</Project>

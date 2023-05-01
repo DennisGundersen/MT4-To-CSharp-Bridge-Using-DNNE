@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MT4_To_CSharp_Bridge", "MT4_To_CSharp_Bridge\MT4_To_CSharp_Bridge.csproj", "{5403FE75-4CC0-4D42-901A-70386EFD64C8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5403FE75-4CC0-4D42-901A-70386EFD64C8}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{5403FE75-4CC0-4D42-901A-70386EFD64C8}.Debug|Any CPU.Build.0 = Debug|x86
+		{5403FE75-4CC0-4D42-901A-70386EFD64C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5403FE75-4CC0-4D42-901A-70386EFD64C8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1CB48E23-ECC4-4690-B8F7-9EFA0BF04B0B}
+	EndGlobalSection
+EndGlobal
