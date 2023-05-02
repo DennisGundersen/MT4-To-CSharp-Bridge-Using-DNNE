@@ -10,11 +10,14 @@ MetaTrader 4 is an electronic trading platform for foreign exchange traders by M
 ### Hints about programming in MT4
 * You can program visual clues as "Indicators", or automate trading using "Expert Advisors" (EA). This project is an EA.
 * To allow autotrading and usage of external code in MT4, go to Tools, Options, Expert Advisors and enable "Allow automated trading", "Allow DLL imports". 
+![Settings](https://ams03pap005files.storage.live.com/y4mnu7CRqsFHH6tXo71CmutbA2Doh-NPsgsiZiqoMZsJQylhljHs4L8W-nvHoQ7GVa0GST-hQKmJpIE4NLs7IGgv9M5WIi90jOqUsclO9bGwsS8YDG4q__D2rwk7rsMIR9x88gdpqPzeVoJ01c96z9pPJgcpOxSkosnvzYE1LE_C1FtUj7Tp2uWFCP4R82mHaVm?width=861&height=557&cropmode=none "Settings")
 * If calling web apis from MQL, check "Allow WebRequests for listed URL" (+ the used URLs).
 * MT4 only accepts "x86" runtime compilations (so no "AnyCPU")
 * An external file such as your C# library must be placed in the MT4 instance's "Data Folder"/MQL4/Libraries/ folder, while any additional files (external projects, NuGet packages etc.) must be placed in the MT4 instance's installation folder to be found.
 * The included MQL sample "DNNETest.mq4" is an EA and must be placed in the "Data Folder"/MQL4/Experts/ folder and compiled there.
+![Editor](https://ams03pap005files.storage.live.com/y4mg0FwvolwWXHwB75LbvzV1SQaT62gKjETpWqwceAuJWkI7pfgLHBfN0mOkI_JgtHsuinr1_BZU8VHuvF_B-3axd9PrRoWM2AmL0Mmk_4KFpwt9ysqtamyW0XMH5q9pfkeuaZ50foRnZDFWMHOMU93HeP0MxYppc0LHSaYXnB76_3qMNCdkt0pJSbKUzcWNqiW?width=1320&height=838&cropmode=none "Editor")
 * Your compiled code can now be run by dragging the file from the Navigator onto the active trading window.
+![MT4](https://ams03pap005files.storage.live.com/y4miJ2U6SPMouneltHx7aO1Zyyxsabz6z6IiG-QolntA_H-cwvTqD02wKm38w_ieZ7rVFoN_4IHaY-sWK2P1z9NOgZjYPzcsnH-PQC12JAxIMoHOIHuMJnGAVu9GSiwmtAHIwgpH4VdM7yvZZIXpnqmjNOPDrgwke0OZZE2tdbKcbsRbZpA5bp1tLipU0uLmMK4?width=1024&height=665&cropmode=none "MT4")
 * MQL uses the "Expert" window for logging, rather than the normal "Journal" window.
 * MQL strings are unicode.
 * MQL dates uses Unix time (1/1/1970).
