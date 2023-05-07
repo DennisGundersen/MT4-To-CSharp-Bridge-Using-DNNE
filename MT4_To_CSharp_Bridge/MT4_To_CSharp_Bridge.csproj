@@ -12,9 +12,6 @@
 	
 	<PropertyGroup Label="DNNE">
 		<DnneRuntimeIdentifier>win-x86</DnneRuntimeIdentifier>
-		<!-- 
-			<DnneSelfContained_Experimental>true</DnneSelfContained_Experimental>
-		-->
 		<DnneAddGeneratedBinaryToProject>true</DnneAddGeneratedBinaryToProject>
 		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
 		<InvariantGlobalization>true</InvariantGlobalization>
@@ -24,7 +21,7 @@
 		<GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
 		<RollForward>LatestMinor</RollForward>
 		<PublishSingleFile>false</PublishSingleFile>
-		<SelfContained>true</SelfContained>
+		<SelfContained>false</SelfContained>
 		<PublishTrimmed>false</PublishTrimmed>
 		<DebugType>embedded</DebugType>
 		<IncludeNativeLibrariesForSelfExtract>false</IncludeNativeLibrariesForSelfExtract>
