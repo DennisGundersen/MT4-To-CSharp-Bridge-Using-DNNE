@@ -2,7 +2,7 @@
 A prototype / tutorial for connecting unmanaged code in MT4 (MQL) to managed code (C#) in modern .NET (6+) using DNNE.
 
 ## Goal
-The goal of this project is to create a simple reuseable C# dll can be loaded into MQL in order to extend MT4 functionality to take advantage of any .NET solution. No actual trading strategies will be included in this project, just a prototype showing how to do the "plumbing" in order to enable your own ideas using C# and modern .NET.
+The goal of this project is to create a simple reuseable C# dll project that can be loaded into MQL in order to extend MT4 functionality to take advantage of any .NET solution. No actual trading strategies will be included in this project, just a prototype showing how to do the "plumbing" in order to enable your own ideas using C# and modern .NET.
 
 ## About MT4
 MetaTrader 4 is an electronic trading platform for foreign exchange traders by MetaQuotes. It has a simple built in programming IDE (MetaQuotes Language Editor, press F4 inside MT4) with is own language (MQL) which has a C++ like syntax. MQL allows traders to automate actions and strategies as well as connecting to external tools such as MathLab, R or AI. MT4 itself is available for free from any number of Forex brokers, just open a demo account and download the client.
@@ -23,9 +23,9 @@ MetaTrader 4 is an electronic trading platform for foreign exchange traders by M
 * MQL dates uses Unix time (1/1/1970).
 
 ## About DNNE
-Dot Net Native Exports (DNNE) is an open source project being developed by Aaron Robinson ("a product owner" of .NET InterOp at Microsoft). 
+Dot Net Native Exports (DNNE) is an open source project being developed by Aaron Robinson (a "product owner" of .NET InterOp at Microsoft). 
 Source code is available at https://github.com/AaronRobinsonMSFT/DNNE, and it's installable from NuGet.
 * Note that DNNE must be set to "win-x86" in .csproj, along with some other properties referred to as DNNE.props in the guide.
 * Due to DNNE using compiler settings, the project must be published to a folder, don't just take the files from the /bin directory.
-* With current settings, DNNE is bundled with the library file and letters "NE" (for Native Exports) is added to the dll file name (so MT4_To_CSharp_BridgeNE.dll).
+* With current settings, DNNE is bundled with the library file and the letters "NE" (for Native Exports) is added to the dll's file name (so MT4_To_CSharp_BridgeNE.dll).
 * Correct .NET Runtime (release version and x86 version) must be installed on the MT4 instance machine.
