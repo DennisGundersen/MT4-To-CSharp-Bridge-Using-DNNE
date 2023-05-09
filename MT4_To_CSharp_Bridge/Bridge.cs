@@ -11,11 +11,34 @@ namespace MT4_To_CSharp_Bridge
         }
 
 
-        //[UnmanagedCallersOnly(EntryPoint = "GetAnswerByValue")]
-        //public static int GetAnswerByValue(int a, double b, bool c, string d)
-        //{
-        //    return a + 2;
-        //}
+        [UnmanagedCallersOnly(EntryPoint = "GimmeAnIntSum")]
+        public static int GimmeAnIntSum(int a, int b)
+        {
+            return a + b;
+        }
+
+        [UnmanagedCallersOnly(EntryPoint = "GimmeAnSum")]
+        public static int GimmeAnSum(int a, double b)
+        {
+            return a + (int)b;
+        }
+
+
+        /*
+        [UnmanagedCallersOnly(EntryPoint = "GetAnswerByValue")]
+        public static int GetAnswerByValue(int a, double b, bool c)
+        {
+            return a + (int)b + (c ? 1 : 0);
+        }
+        */
+
+        /*
+        [UnmanagedCallersOnly(EntryPoint = "GetAnswerByValueEx")]
+        public static int GetAnswerByValueEx(int a, double b, bool c, string d)
+        {
+            return a + (int)b + (c ? 1 : 0);
+        }
+        */
 
 
         //[UnmanagedCallersOnly(EntryPoint = "GetAnswerByReference")]
