@@ -1,5 +1,7 @@
-﻿using System.Runtime.InteropServices;
+﻿#define BY_REF
 
+using System;
+using System.Runtime.InteropServices;
 namespace MT4_To_CSharp_Bridge
 {
     public static class Bridge
@@ -7,22 +9,81 @@ namespace MT4_To_CSharp_Bridge
         [UnmanagedCallersOnly(EntryPoint = "GimmeAnInt")]
         public static int GimmeAnInt(int a)
         {
-            return a + 1;
+            a += 1;
+            return a;
         }
 
 
-        [UnmanagedCallersOnly(EntryPoint = "GimmeAnIntSum")]
-        public static int GimmeAnIntSum(int a, int b)
+
+        [UnmanagedCallersOnly(EntryPoint = "GetIntSum")]
+        public static int GetIntSum(int a, int b)
         {
-            return a + b;
+            a += b;
+            b += 2;
+            return a;
         }
 
-        [UnmanagedCallersOnly(EntryPoint = "GimmeAnSum")]
-        public static int GimmeAnSum(int a, double b)
+        [UnmanagedCallersOnly(EntryPoint = "GetSum")]
+        public static int GetSum(int a, double b)
         {
-            return a + (int)b;
+            a += (int)b;
+            b += 2;
+            return a;
         }
 
+        [UnmanagedCallersOnly(EntryPoint = "GetSumDoubles")]
+        public static int GetSumDoubles(double a, double b)
+        {
+            a += b;
+            b += 2.8;
+            return (int)a;
+        }
+
+#if BY_REF
+        [UnmanagedCallersOnly(EntryPoint = "GimmeAnIntRefDummy")]
+        public unsafe static int GimmeAnIntRefDummy(int* a)
+        {
+            return 1;
+        }
+
+
+        [UnmanagedCallersOnly(EntryPoint = "GimmeAnIntRef")]
+        public unsafe static int GimmeAnIntRef(int* a)
+        {
+            return *a;
+        }
+
+        [UnmanagedCallersOnly(EntryPoint = "GimmeAnIntRefMod")]
+        public unsafe static int GimmeAnIntRefMod(int* a)
+        {
+            *a += 1;
+            return *a;
+        }
+
+        [UnmanagedCallersOnly(EntryPoint = "GetIntSumRef")]
+        public unsafe static int GetIntSumRef(int *a, int *b)
+        {
+            *a += 1;
+            *b += 2;
+            return *a + *b;
+        }
+
+        [UnmanagedCallersOnly(EntryPoint = "GetSumRef")]
+        public unsafe static int GetSumRef(int *a, double *b)
+        {
+            *a += 1;
+            *b += 2.8;
+            return *a + (int)*b;
+        }
+
+        [UnmanagedCallersOnly(EntryPoint = "GetSumDoublesRef")]
+        public unsafe static int GetSumDoublesRef(double *a, double *b)
+        {
+            *a += 1.6;
+            *b += 2.2;
+            return (int)(*a + *b);
+        }
+#endif
 
         /*
         [UnmanagedCallersOnly(EntryPoint = "GetAnswerByValue")]
