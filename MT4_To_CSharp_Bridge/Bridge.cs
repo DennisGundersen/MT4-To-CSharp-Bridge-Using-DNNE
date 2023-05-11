@@ -1,5 +1,6 @@
 ﻿#define BY_REF
-
+#define BOOLS
+using DNNE;
 using System;
 using System.Runtime.InteropServices;
 namespace MT4_To_CSharp_Bridge
@@ -82,6 +83,27 @@ namespace MT4_To_CSharp_Bridge
             *a += 1.6;
             *b += 2.2;
             return (int)(*a + *b);
+        }
+#endif
+#if BOOLS
+        
+        [UnmanagedCallersOnly(EntryPoint = "GetNot")]
+        public static byte GetNot(byte a)
+        {
+            return MQL4Converter.WriteBool(GetNotManaged(MQL4Converter.ReadBool(a)));
+        }
+
+        //this is not visible by DNNE
+        [UnmanagedCallersOnly(EntryPoint = "GetNot2")]
+        [return : MarshalAs(UnmanagedType.I1)]
+        public static bool GetNot2([MarshalAs(UnmanagedType.I1)] bool a)
+        {
+            return !a;
+        }
+
+        public static bool GetNotManaged(bool a)
+        {
+            return !a;
         }
 #endif
 
