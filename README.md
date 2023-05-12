@@ -2,7 +2,20 @@
 A prototype / tutorial for connecting unmanaged code in MT4 (MQL) to managed code (C#) in modern .NET (6+) using DNNE.
 
 ## Goal
-The goal of this project is to create a simple reuseable C# dll project that can be loaded into MQL in order to extend MT4 functionality to take advantage of any .NET solution. No actual trading strategies will be included in this project, just a prototype showing how to do the "plumbing" in order to enable your own ideas using C# and modern .NET.
+The goal of this project is to create a simple reuseable C# dll project that can be loaded into MQL in order to extend MT4 to take advantage of any modern .NET solution (.NET 6+). No actual trading strategies will be included in this project, just a prototype showing how to do the "plumbing" in order to enable your own ideas using C# and modern .NET. 
+Note: Passing strings from MQL to C# is supported, but from C# to MQL is not supported.
+
+## Usage
+1. Download or clone the repository into Visual Studio.
+2. Restore/update DNNE from NuGet.
+3. Compile the project and publish it to a folder.
+![Publishing](https://ams03pap005files.storage.live.com/y4mJuVmGk_CGCz6eFiYhMpwkUsHOMBPkhqZin4rgQKVhQFe20t-WLgJG2fQmilf3_OO_sGSxo0LyTJfjFlU5ai2mVHqBI2lZTDeItfVceUBwakyT_Gkf1TGgJ8EaRxqUYIuvdorOBdY92u2sur1mWa-Zco_pkyrzf2fZF8xgEaqvpqbXjrVlWcEKd9hT4fTQhHc?width=1024&height=926&cropmode=none "Publishing")
+![Settings](https://ams03pap005files.storage.live.com/y4mu97bnrfrQnssA_oMNLQFWEZUf7_e5Dsws1oA9VT4OepXDvwkntO8ZKpgMVyy0G6hM5QkVMDJuEVmRwXkFo14Vir8Mz53h9ufzqdEkqw73V1cLmxR_QOHGeB-pM2vxs2m8CKr85MnvnuSBVnFAvRCuq5WjOtpms4Dy69sSOYfY-GCYtd1fMFITgZG-fiO3Uhy?width=825&height=750&cropmode=none "Settings")
+4. Copy ProjectName.dll, ProjectNameNE.dll and ProjectName.runtimeconfig.json to the /MQL/Libraries folder (see section on MT4 below for details).
+5. Copy any extra dlls (other projects or NuGet packages) to the MT4 instance's installation folder (C:\Program Files (x86)\MT4 DEV).
+6. Copy the MQL file to /MQL/Experts.
+7. Open the MQL Editor and compile the EA.
+8. Add EA to chart.
 
 ## About MT4
 MetaTrader 4 is an electronic trading platform for foreign exchange traders by MetaQuotes. It has a simple built in programming IDE (MetaQuotes Language Editor, press F4 inside MT4) with is own language (MQL) which has a C++ like syntax. MQL allows traders to automate actions and strategies as well as connecting to external tools such as MathLab, R or AI. MT4 itself is available for free from any number of Forex brokers, just open a demo account and download the client.
@@ -27,5 +40,5 @@ Dot Net Native Exports (DNNE) is an open source project being developed by Aaron
 Source code is available at https://github.com/AaronRobinsonMSFT/DNNE, and it's installable from NuGet.
 * Note that DNNE must be set to "win-x86" in .csproj, along with some other properties referred to as DNNE.props in the guide.
 * Due to DNNE using compiler settings, the project must be published to a folder, don't just take the files from the /bin directory.
-* With current settings, DNNE is bundled with the library file and the letters "NE" (for Native Exports) is added to the dll's file name (so MT4_To_CSharp_BridgeNE.dll).
-* Correct .NET Runtime (release version and x86 version) must be installed on the MT4 instance machine.
+* With current settings, your code in ProjectyName.dll is executed by DNNE in ProjectNameNE.dll (as an adapter) while .NET is setup in ProjectName.runtimeconfig.json. To merge files, see DNNE guide.
+* Correct .NET Runtime (release version and x86 version) must be installed on the MT4 instance' machine.
