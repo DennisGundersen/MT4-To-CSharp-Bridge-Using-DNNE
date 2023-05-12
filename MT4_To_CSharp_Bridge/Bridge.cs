@@ -1,6 +1,7 @@
 ﻿#define BY_REF
 #define BOOLS
 #define STRINGS
+
 #define ASYNC
 
 using DNNE;
@@ -135,20 +136,19 @@ namespace MT4_To_CSharp_Bridge
     typedef struct MqlString string;")]
         */
         [UnmanagedCallersOnly(EntryPoint = "GetStringLength")]
-        public unsafe static int GetStringLength([C99Type("wchar_t *")] char* a)
+        public unsafe static int GetStringLength([C99Type("wchar_t *")] char *a)
         {
             string b = new string(a);
             return b.Length;
         }
 
         [UnmanagedCallersOnly(EntryPoint = "ConvertHexToInt")]
-        public unsafe static int ConvertHexToInt([C99Type("wchar_t *")] char* a)
+        public unsafe static int ConvertHexToInt([C99Type("wchar_t *")] char *a)
         {
             string b = new string(a);
             int result;
             bool correct = int.TryParse(b, System.Globalization.NumberStyles.HexNumber, CultureInfo.InvariantCulture, out result);
             return correct ? result : -1;
-
         }
 #endif
 

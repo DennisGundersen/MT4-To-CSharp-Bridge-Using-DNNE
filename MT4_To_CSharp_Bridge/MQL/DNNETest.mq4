@@ -36,7 +36,6 @@
    
    //async
    int GetIntAsync(int a, int delay);
-   
    //int GetAnswerByValue(int a, double b, bool c);
    //int GetAnswerByValueEx(int a, double b, bool c, string d);
    //void GetAnswerByReference(int &a, double &b, bool &c, string &d);
@@ -133,6 +132,13 @@ int OnInit()
    PrintFormat("GetIntAsync(%d, %d) returned: %d", myInt, delayS, result);
    
      
+   //result = GetAnswerByValue(myInt, myDouble, myBool);
+   //Print("GetAnswerByValue(" + IntegerToString(myInt) + ", " + DoubleToString(myDouble, 4) + ", " + IntegerToString(myBool) + ") returned: " + IntegerToString(result));
+   
+   //Print("Starting GetAnserByValue");
+   //result = GetAnswerByValue(myInt, myDouble, myBool);
+   //Print("GetAnswerByValue(" + IntegerToString(myInt) + ", " + DoubleToString(myDouble, 4) + ", " + IntegerToString(myBool) + ") returned: " + IntegerToString(result));
+   
    return(INIT_SUCCEEDED);
 }
 
