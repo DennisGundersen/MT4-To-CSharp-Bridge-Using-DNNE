@@ -34,12 +34,15 @@
    int GetStringLength(string a);
    int ConvertHexToInt(string a);
    
+   //async
+   int GetIntAsync(int a, int delay);
    //int GetAnswerByValue(int a, double b, bool c);
    //int GetAnswerByValueEx(int a, double b, bool c, string d);
    //void GetAnswerByReference(int &a, double &b, bool &c, string &d);
    //string GetAnswerByJSONObject(int a, double b, bool c, string d);
 #import
 
+int delayS = 4;
 int myInt =  2;
 int myInt2 = 4;
 double myDouble = 2.5000;
@@ -114,6 +117,21 @@ int OnInit()
    result = ConvertHexToInt(myStringHex);
    PrintFormat("ConvertHexToInt(%s) returned: %d", myStringHex, result);
    
+   /* default not working
+   PrintFormat("Starting GetIntAsync(%d, 'default delay')", myInt);
+   result = GetIntAsync(myInt);
+   PrintFormat("GetIntAsync(%d, 'default delay') returned: %d", myInt, result);
+   */
+   PrintFormat("Starting GetIntAsync(%d, %d)", myInt, delayS);
+   result = GetIntAsync(myInt, delayS);
+   PrintFormat("GetIntAsync(%d, %d) returned: %d", myInt, delayS, result);
+   
+   delayS += 5;
+   PrintFormat("Starting GetIntAsync(%d, %d)", myInt, delayS);
+   result = GetIntAsync(myInt, delayS);
+   PrintFormat("GetIntAsync(%d, %d) returned: %d", myInt, delayS, result);
+   
+     
    //result = GetAnswerByValue(myInt, myDouble, myBool);
    //Print("GetAnswerByValue(" + IntegerToString(myInt) + ", " + DoubleToString(myDouble, 4) + ", " + IntegerToString(myBool) + ") returned: " + IntegerToString(result));
    
@@ -130,17 +148,6 @@ int OnInit()
 //+------------------------------------------------------------------+
 void OnTick()
 {
-/*
-   int result = GetAnswerByValue(myInt, myDouble, myBool, myString);
-   Print("GetAnswerByValue(" + IntegerToString(myInt) + ", " + DoubleToString(myDouble, 4) + ", " + IntegerToString(myBool) + ", " + myString + ") returned: " + IntegerToString(result));
-   
-   GetAnswerByReference(myInt, myDouble, myBool, myString);
-   Print("Calling GetAnswerByReference(" + IntegerToString(myInt) + ", " + DoubleToString(myDouble, 4) + ", " + IntegerToString(myBool) + ", " + myString + ")");
-   Print("New values are " + "myInt = " + IntegerToString(myInt) + ", myDouble = " + DoubleToString(myDouble, 4) + ", myBool = " + IntegerToString(myBool) + ", myString = " + myString);
-   
-   string json = GetAnswerByJSONObject(myInt, myDouble, myBool, myString);
-   Print("GetAnswerByJSONObject(" + IntegerToString(myInt) + ", " + DoubleToString(myDouble, 4) + ", " + IntegerToString(myBool) + ", " + myString + ") returned: " + json);
-*/
 }
 
 
