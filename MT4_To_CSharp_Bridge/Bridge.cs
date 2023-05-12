@@ -1,11 +1,14 @@
 ﻿#define BY_REF
 #define BOOLS
 #define STRINGS
+#define ASYNC
 
 using DNNE;
 using System;
 using System.Globalization;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
+
 namespace MT4_To_CSharp_Bridge
 {
     public static class Bridge
@@ -132,20 +135,36 @@ namespace MT4_To_CSharp_Bridge
     typedef struct MqlString string;")]
         */
         [UnmanagedCallersOnly(EntryPoint = "GetStringLength")]
-        public unsafe static int GetStringLength([C99Type("wchar_t *")] char *a)
+        public unsafe static int GetStringLength([C99Type("wchar_t *")] char* a)
         {
             string b = new string(a);
             return b.Length;
         }
 
         [UnmanagedCallersOnly(EntryPoint = "ConvertHexToInt")]
-        public unsafe static int ConvertHexToInt([C99Type("wchar_t *")] char *a)
+        public unsafe static int ConvertHexToInt([C99Type("wchar_t *")] char* a)
         {
             string b = new string(a);
             int result;
             bool correct = int.TryParse(b, System.Globalization.NumberStyles.HexNumber, CultureInfo.InvariantCulture, out result);
             return correct ? result : -1;
-            
+
+        }
+#endif
+
+#if ASYNC
+
+        [UnmanagedCallersOnly(EntryPoint = "GetIntAsync")]
+        public static int GetIntAsync(int value, int pause = 3)
+        {
+            Task<int> task = Task.Run<int>(async () => await GetIntManagedAsync(value, pause));
+            return task.Result;
+        }
+
+        public static async Task<int> GetIntManagedAsync(int value, int pause = 3)
+        {
+            await Task.Delay(pause * 1000);
+            return ++value;
         }
 #endif
 
