@@ -30,6 +30,10 @@
    //bool
    bool GetNot(bool a);
    
+   //string 
+   int GetStringLength(string a);
+   int ConvertHexToInt(string a);
+   
    //int GetAnswerByValue(int a, double b, bool c);
    //int GetAnswerByValueEx(int a, double b, bool c, string d);
    //void GetAnswerByReference(int &a, double &b, bool &c, string &d);
@@ -43,6 +47,7 @@ double myDouble2 = 3.600;
 bool myBool = true;
 bool myBool2 = false;
 string myString = "My string";
+string myStringHex = "FF";
 
 //+------------------------------------------------------------------+
 //| Expert initialization function                                   |
@@ -96,6 +101,18 @@ int OnInit()
    PrintFormat("Starting GetNot(%d)", myBool2);
    bresult = GetNot(myBool2);
    PrintFormat("GetNot(%d) returned: %d", myBool2, bresult);
+   
+   PrintFormat("Starting GetStringLength(%s)", myString);
+   result = GetStringLength(myString);
+   PrintFormat("GetStringLength(%s) returned: %d", myString, result);
+   
+   PrintFormat("Starting ConvertHexToInt(%s)", myString);
+   result = ConvertHexToInt(myString);
+   PrintFormat("ConvertHexToInt(%s) returned: %d", myString, result);
+   
+   PrintFormat("Starting ConvertHexToInt(%s)", myStringHex);
+   result = ConvertHexToInt(myStringHex);
+   PrintFormat("ConvertHexToInt(%s) returned: %d", myStringHex, result);
    
    //result = GetAnswerByValue(myInt, myDouble, myBool);
    //Print("GetAnswerByValue(" + IntegerToString(myInt) + ", " + DoubleToString(myDouble, 4) + ", " + IntegerToString(myBool) + ") returned: " + IntegerToString(result));
