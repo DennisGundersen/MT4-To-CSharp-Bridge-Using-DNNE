@@ -1,7 +1,6 @@
 ﻿#define BY_REF
 #define BOOLS
 #define STRINGS
-
 #define ASYNC
 
 using DNNE;
@@ -20,8 +19,6 @@ namespace MT4_To_CSharp_Bridge
             a += 1;
             return a;
         }
-
-
 
         [UnmanagedCallersOnly(EntryPoint = "GetIntSum")]
         public static int GetIntSum(int a, int b)
@@ -47,13 +44,13 @@ namespace MT4_To_CSharp_Bridge
             return (int)a;
         }
 
+
 #if BY_REF
         [UnmanagedCallersOnly(EntryPoint = "GimmeAnIntRefDummy")]
         public unsafe static int GimmeAnIntRefDummy(int* a)
         {
             return 1;
         }
-
 
         [UnmanagedCallersOnly(EntryPoint = "GimmeAnIntRef")]
         public unsafe static int GimmeAnIntRef(int* a)
@@ -92,6 +89,8 @@ namespace MT4_To_CSharp_Bridge
             return (int)(*a + *b);
         }
 #endif
+
+
 #if BOOLS
 
         [UnmanagedCallersOnly(EntryPoint = "GetNot")]
@@ -99,42 +98,22 @@ namespace MT4_To_CSharp_Bridge
         {
             return MQL4Converter.WriteBool(GetNotManaged(MQL4Converter.ReadBool(a)));
         }
-        /*
-        //this is not visible by DNNE 
-        [UnmanagedCallersOnly(EntryPoint = "GetNot2")]
-        //[return : MarshalAs(UnmanagedType.I1)] //- this stops generating 
-        public static bool GetNot2([MarshalAs(UnmanagedType.I1)] bool a)
-        {
-            return !a;
-        }
-        */
-
-
         public static bool GetNotManaged(bool a)
         {
             return !a;
         }
 #endif
+
+
 #if STRINGS
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
         public struct MQLString
         {
             public int size;
             public IntPtr buffer;
-            int reserverd;
+            int reserved;
         }
 
-        /*
-        [C99DeclCode(@"#pragma pack(push,1)
-    struct MqlString
-    {
-        int      size;       // 32-bit integer, contains size of the buffer, allocated for the string.
-        wchar_t*   buffer;     // 32-bit address of the buffer, containing the string. [LPWSTR] 
-        int      reserved;   // 32-bit integer, reserved.
-    };
-    #pragma pack(pop,1)
-    typedef struct MqlString string;")]
-        */
         [UnmanagedCallersOnly(EntryPoint = "GetStringLength")]
         public unsafe static int GetStringLength([C99Type("wchar_t *")] char *a)
         {
@@ -152,8 +131,8 @@ namespace MT4_To_CSharp_Bridge
         }
 #endif
 
-#if ASYNC
 
+#if ASYNC
         [UnmanagedCallersOnly(EntryPoint = "GetIntAsync")]
         public static int GetIntAsync(int value, int pause = 3)
         {
