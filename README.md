@@ -2,18 +2,19 @@
 A prototype / tutorial for connecting unmanaged code in MT4 (MQL) to managed code (C#) in modern .NET (6+) using DNNE.
 
 ## Goal
-The goal of this project is to create a simple, reuseable and generic C# library project that can be loaded into MQL in order to extend MT4 to take advantage of any modern .NET solution (.NET 6+). No actual foreign exchange trading strategies will be included in this project, just a prototype showing how to do the "plumbing" in order to enable your own ideas using C# and modern .NET. 
+The goal of this project was to create a simple, reuseable and generic C# library project that who's dll can be loaded into MQL in order to extend MT4 to take advantage of any modern .NET solution (.NET 6+). No actual foreign exchange trading strategies will be included in this project, it's just a prototype showing how to do the "plumbing" in order to enable your own ideas using C# and modern .NET. 
 Note: Passing strings from MQL to C# is supported, but from C# to MQL is not currently supported.
 
 ## Usage
 1. Download or clone the repository into Visual Studio.
-2. Restore/update DNNE from NuGet.
-3. Compile the project and publish it to a folder (see section on DNNE below for details).
+2. Make sure Debug and Release condigurations are set to x86.
+3. Restore/update DNNE from NuGet.
+4. Compile the project and publish it to a folder with the settings below (see section on DNNE below for details).
 ![Settings](https://ams03pap005files.storage.live.com/y4mu97bnrfrQnssA_oMNLQFWEZUf7_e5Dsws1oA9VT4OepXDvwkntO8ZKpgMVyy0G6hM5QkVMDJuEVmRwXkFo14Vir8Mz53h9ufzqdEkqw73V1cLmxR_QOHGeB-pM2vxs2m8CKr85MnvnuSBVnFAvRCuq5WjOtpms4Dy69sSOYfY-GCYtd1fMFITgZG-fiO3Uhy?width=825&height=750&cropmode=none "Settings")
 ![Publishing](https://ams03pap005files.storage.live.com/y4mJuVmGk_CGCz6eFiYhMpwkUsHOMBPkhqZin4rgQKVhQFe20t-WLgJG2fQmilf3_OO_sGSxo0LyTJfjFlU5ai2mVHqBI2lZTDeItfVceUBwakyT_Gkf1TGgJ8EaRxqUYIuvdorOBdY92u2sur1mWa-Zco_pkyrzf2fZF8xgEaqvpqbXjrVlWcEKd9hT4fTQhHc?width=1024&height=926&cropmode=none "Publishing")
 4. Copy YourProjectName.dll, YourProjectNameNE.dll and YourProjectName.runtimeconfig.json to the /MQL/Libraries folder (see section on MT4 below for details).
 5. Copy any extra dlls (from added projects or NuGet packages) to the MT4 instance's installation folder (ex: C:\Program Files (x86)\MT4 DEV).
-6. Copy the MQL file to /MQL/Experts.
+6. Copy the MQL file DNNETest.mql to /MQL/Experts.
 7. Open the MQL Editor and compile the EA.
 8. Add EA to running chart by dragging it from the Navigator window.
 
