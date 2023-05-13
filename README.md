@@ -44,4 +44,4 @@ Source code is available at https://github.com/AaronRobinsonMSFT/DNNE, and it's 
 * Correct .NET Runtime (the release AND must be x86 version) must be installed on the MT4 instance' machine.
 
 ## Acknowledgments
-Great thanks to Jerzy Brzozowski (@GroM), Andrei Gireada, Jimmy Luo, @ThaDaVos and @AaronRobinsonMSFT who did all the work. I just asked questions and pestered people for help.
+Great thanks to Jerzy Brzozowski ([@GroM] https://www.github.com/GroM), Andrei Gireada, Jimmy Luo, [@ThaDaVos] (https://github.com/ThaDaVos) and [@AaronRobinsonMSFT] (https://github.com/AaronRobinsonMSFT) who did all the work. I just asked questions and pestered people for help.
