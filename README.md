@@ -14,7 +14,7 @@ Note: Passing strings from MQL to C# is supported, but from C# to MQL is not cur
 ![Publishing](https://ams03pap005files.storage.live.com/y4mJuVmGk_CGCz6eFiYhMpwkUsHOMBPkhqZin4rgQKVhQFe20t-WLgJG2fQmilf3_OO_sGSxo0LyTJfjFlU5ai2mVHqBI2lZTDeItfVceUBwakyT_Gkf1TGgJ8EaRxqUYIuvdorOBdY92u2sur1mWa-Zco_pkyrzf2fZF8xgEaqvpqbXjrVlWcEKd9hT4fTQhHc?width=1024&height=926&cropmode=none "Publishing")
 4. Copy YourProjectName.dll, YourProjectNameNE.dll and YourProjectName.runtimeconfig.json to the /MQL/Libraries folder (see section on MT4 below for details).
 5. Copy any extra dlls (from added projects or NuGet packages) to the MT4 instance's installation folder (ex: C:\Program Files (x86)\MT4 DEV).
-6. Copy the MQL file DNNETest.mql to /MQL/Experts.
+6. Copy the MQL file DNNETest.mq4 to /MQL/Experts.
 7. Open the MQL Editor and compile the EA.
 8. Add EA to running chart by dragging it from the Navigator window.
 
