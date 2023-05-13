@@ -4,6 +4,7 @@
 #define ASYNC
 
 using DNNE;
+using MT4_To_CSharp_Bridge.Tools;
 using System;
 using System.Globalization;
 using System.Runtime.InteropServices;
@@ -146,39 +147,5 @@ namespace MT4_To_CSharp_Bridge
             return ++value;
         }
 #endif
-
-        /*
-        [UnmanagedCallersOnly(EntryPoint = "GetAnswerByValue")]
-        public static int GetAnswerByValue(int a, double b, bool c)
-        {
-            return a + (int)b + (c ? 1 : 0);
-        }
-        */
-
-        /*
-        [UnmanagedCallersOnly(EntryPoint = "GetAnswerByValueEx")]
-        public static int GetAnswerByValueEx(int a, double b, bool c, string d)
-        {
-            return a + (int)b + (c ? 1 : 0);
-        }
-        */
-
-
-        //[UnmanagedCallersOnly(EntryPoint = "GetAnswerByReference")]
-        //public static void GetAnswerByReference(ref int a, ref double b, ref bool c, ref string d)
-        //{
-        //    a *= 2;
-        //    b *= 2;
-        //    c = !c;
-        //    d = "This is the result from C#";
-        //}
-
-
-        //[UnmanagedCallersOnly(EntryPoint = "GetAnswerByJSONObject")]
-        //public static string GetAnswerByJSONObject(int a, double b, bool c, string d)
-        //{
-        //    string json = "Turn variables into serialized string";
-        //    return json;
-        //}
     }
 }
