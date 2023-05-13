@@ -18,7 +18,7 @@ Note: Passing strings from MQL to C# is supported, but from C# to MQL is not sup
 8. Add EA to chart.
 
 ## About MT4
-MetaTrader 4 is an electronic trading platform for foreign exchange traders by MetaQuotes. It has a simple built in programming IDE (MetaQuotes Language Editor, press F4 inside MT4) with is own language (MQL) which has a C++ like syntax. MQL allows traders to automate actions and strategies as well as connecting to external tools such as MathLab, R or AI. MT4 itself is available for free from any number of Forex brokers, just open a demo account and download the client.
+MetaTrader 4 is an electronic trading platform for foreign exchange traders by MetaQuotes. It has a simple built in programming IDE (MetaQuotes Language Editor, press F4 inside MT4) with is own language (MQL) which has a C++ like syntax. MQL allows traders to automate actions and strategies as well as connecting to external tools such as MatLab, R or AI. MT4 itself is available for free from any number of Forex brokers, just open a demo account and download the client.
 
 ### Hints about programming in MT4
 * You can program visual clues as "Indicators", or automate trading using "Expert Advisors" (EA). This project is an EA.
