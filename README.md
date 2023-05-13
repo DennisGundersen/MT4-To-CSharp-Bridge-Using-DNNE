@@ -1,4 +1,4 @@
-# Metatrader 4 to C# programming bridge using DNNE
+# Metatrader 4 to C# (.NET 6+) programming bridge using DNNE
 A prototype / tutorial for connecting unmanaged code in MT4 (MQL) to managed code (C#) in modern .NET (6+) using DNNE.
 
 ## Goal
