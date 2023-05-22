@@ -41,7 +41,7 @@ Dot Net Native Exports (DNNE) is an open source project being developed by Aaron
 Source code is available at https://github.com/AaronRobinsonMSFT/DNNE, and it's installable from NuGet.
 * Note that DNNE must be set to "win-x86" in .csproj, along with some other properties referred to as DNNE.props in the guide.
 * Due to DNNE using compiler settings, the project must be published to a folder, don't just take the files from the /bin directory.
-* With current settings, your code in YourProjectName.dll is executed by DNNE in YourProjectName.dll (as an adapter) while the .NET version is wired up in YourProjectName.runtimeconfig.json. To merge files, see DNNE guide.
+* With current settings, your code in YourProjectName.dll is executed by DNNE in YourProjectNameNE.dll (as an adapter) while the .NET version is wired up in YourProjectName.runtimeconfig.json. To merge files, see DNNE guide.
 * Correct .NET Runtime (the release AND must be x86 version) must be installed on the MT4 instance' machine.
 
 ## Acknowledgments
