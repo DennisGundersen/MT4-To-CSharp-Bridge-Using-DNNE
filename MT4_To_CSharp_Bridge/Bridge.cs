@@ -2,8 +2,12 @@
 #define BOOLS
 #define STRINGS
 #define ASYNC
+#define DI
 
 using DNNE;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using MT4_To_CSharp_Bridge.DI;
 using System;
 using System.Globalization;
 using System.Runtime.InteropServices;
@@ -166,6 +170,84 @@ namespace MT4_To_CSharp_Bridge
             await Task.Delay(pause * 1000);
             return ++value;
         }
+#endif
+
+#if DI
+        private static IHost? host;
+        private static bool hostRunning = false;
+        private static IServiceScope? serviceScope;
+        private static int scopeNo = 0;
+        [UnmanagedCallersOnly(EntryPoint = "DIStart")]
+        public static int DIStart()
+        {
+            if (host == null)
+            {
+                host = CreateHostBuilder().Build();
+            }
+            if (!hostRunning)
+            {
+
+                //host.RunAsync();
+                host.StartAsync();
+                hostRunning = true;
+                serviceScope = host.Services.CreateScope();
+                ++scopeNo;
+                return 1;
+            }
+            return 0;
+        }
+
+        [UnmanagedCallersOnly(EntryPoint = "DIStop")]
+        public static int DIStop()
+        {
+            if (hostRunning && host != null)
+            {
+                host.StopAsync();
+                hostRunning = false;
+                scopeNo = 0;
+                return 1;
+            }
+            return 0;
+        }
+        [UnmanagedCallersOnly(EntryPoint = "DIScopeNew")]
+        public static int DIScopeNew()
+        {
+            if (host == null) return -100;
+            serviceScope?.Dispose();
+            serviceScope = host.Services.CreateScope();
+            return serviceScope != null ? ++scopeNo : 0;
+        }
+
+        [UnmanagedCallersOnly(EntryPoint = "DITestTransient")]
+        public static int DITestTransient()
+        {
+            return host?.Services.GetRequiredService<IDiTransientService>().GetInt() ?? -100;
+            //return new DITestManaged();
+        }
+
+        [UnmanagedCallersOnly(EntryPoint = "DITestScoped")]
+        public static int DITestScoped()
+        {
+            if (host == null) return -100;
+            if (serviceScope == null) return -101;
+            return serviceScope.ServiceProvider.GetRequiredService<IDiScopedService>().GetInt();
+        }
+
+        [UnmanagedCallersOnly(EntryPoint = "DITestSingleton")]
+        public static int DITestSingleton()
+        {
+            return host?.Services.GetRequiredService<IDiSingletonService>().GetInt() ?? -100;
+        }
+
+
+        public static IHostBuilder CreateHostBuilder() =>
+            Host.CreateDefaultBuilder()
+                .ConfigureServices((hostContext, services) =>
+                {
+                    services.AddTransient<IDiTransientService, DiTransientService>()
+                        .AddScoped<IDiScopedService, DiScopedService>()
+                        .AddSingleton<IDiSingletonService, DiSingletonService>();
+                });
 #endif
 
         /*
