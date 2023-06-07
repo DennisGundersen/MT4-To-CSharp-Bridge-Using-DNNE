@@ -1,4 +1,4 @@
-﻿namespace MT4_To_CSharp_Bridge.Tools
+namespace MT4_To_CSharp_Bridge.Tools
 {
     internal class MQL4Converter
     {
