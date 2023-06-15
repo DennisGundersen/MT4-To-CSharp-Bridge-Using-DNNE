@@ -2,7 +2,7 @@
 A prototype / tutorial for connecting unmanaged code in MT4 (MQL) to managed code (C#) in modern .NET (6+) using DNNE.
 
 ## Goal
-The goal of this project was to create a simple, reuseable and generic C# library project that who's dll can be loaded into MQL in order to extend MT4 to take advantage of any modern .NET solution (.NET 6+). No actual foreign exchange trading strategies will be included in this project, it's just a prototype showing how to do the "plumbing" in order to enable your own ideas using C# and modern .NET. 
+The goal of this project was to create a simple, reuseable and generic C# library project who's dll can be loaded into MQL in order to extend MT4 to take advantage of any modern .NET solution (.NET 6+). No actual foreign exchange trading strategies will be included in this project, it's just a prototype showing how to do the "plumbing" in order to enable your own ideas using C# and modern .NET. 
 Note: Passing strings from MQL to C# is supported, but from C# to MQL is not currently supported.
 
 ## Usage
