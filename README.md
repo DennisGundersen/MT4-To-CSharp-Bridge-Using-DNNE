@@ -13,7 +13,7 @@ Note: Passing strings from MQL to C# is supported, but from C# to MQL is not cur
 ![Settings](https://ams03pap005files.storage.live.com/y4mu97bnrfrQnssA_oMNLQFWEZUf7_e5Dsws1oA9VT4OepXDvwkntO8ZKpgMVyy0G6hM5QkVMDJuEVmRwXkFo14Vir8Mz53h9ufzqdEkqw73V1cLmxR_QOHGeB-pM2vxs2m8CKr85MnvnuSBVnFAvRCuq5WjOtpms4Dy69sSOYfY-GCYtd1fMFITgZG-fiO3Uhy?width=825&height=750&cropmode=none "Settings")
 ![Publishing](https://ams03pap005files.storage.live.com/y4mJuVmGk_CGCz6eFiYhMpwkUsHOMBPkhqZin4rgQKVhQFe20t-WLgJG2fQmilf3_OO_sGSxo0LyTJfjFlU5ai2mVHqBI2lZTDeItfVceUBwakyT_Gkf1TGgJ8EaRxqUYIuvdorOBdY92u2sur1mWa-Zco_pkyrzf2fZF8xgEaqvpqbXjrVlWcEKd9hT4fTQhHc?width=1024&height=926&cropmode=none "Publishing")
 4. Copy YourProjectName.dll, YourProjectNameNE.dll and YourProjectName.runtimeconfig.json to the /MQL/Libraries folder (see section on MT4 below for details).
-5. Copy any extra dlls (from added projects or NuGet packages) to the MT4 instance's installation folder (ex: C:\Program Files (x86)\MT4 DEV).
+5. Normally, for MT4, you would copy any extra dlls (from added projects or NuGet packages) to the MT4 instance's installation folder (ex: C:\Program Files (x86)\MT4 DEV), but with DNNE loading the files, you must instead place all the dll's in the libraries folder.
 6. Copy the MQL file DNNETest.mq4 to /MQL/Experts.
 7. Open the MQL Editor and compile the EA.
 8. Add EA to running chart by dragging it from the Navigator window.
